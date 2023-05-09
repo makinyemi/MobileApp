@@ -1,7 +1,13 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, FlatList, StatusBar, ImageBackground} from "react-native";
-import ListItem from "../components/ListItem"
-
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  FlatList,
+  StatusBar,
+  ImageBackground,
+} from "react-native";
+import ListItem from "../components/ListItem";
 
 const DATA = [
   {
@@ -160,18 +166,28 @@ const DATA = [
 ];
 
 export default function UpcomingWeather() {
-  
-  const {container , image , title} = styles;
+  const { container, image, title } = styles;
 
   return (
     <SafeAreaView style={container}>
-      <ImageBackground resizeMode="cover" source={require("../../assets/upcoming-background.jpg")} style={image}>
-      <Text style={title}>Upcoming Weather</Text>
-      <FlatList 
-        data={DATA} 
-        renderItem={({item}) => <ListItem condition={item.weather[0].main} dt_txt={item.dt_txt} max={item.main.temp_max} min={item.main.temp_min}/> }
-        keyExtractor={(item) => item.dt_txt}
-      />
+      <ImageBackground
+        resizeMode="cover"
+        source={require("../../assets/upcoming-background.jpg")}
+        style={image}
+      >
+        <Text style={title}>Upcoming Weather</Text>
+        <FlatList
+          data={DATA}
+          renderItem={({ item }) => (
+            <ListItem
+              condition={item.weather[0].main}
+              dt_txt={item.dt_txt}
+              max={item.main.temp_max}
+              min={item.main.temp_min}
+            />
+          )}
+          keyExtractor={(item) => item.dt_txt}
+        />
       </ImageBackground>
     </SafeAreaView>
   );
@@ -183,11 +199,11 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
     backgroundColor: "saddlebrown",
   },
-  image : {
-    flex : 1,
-    justifyContent: "center"
+  image: {
+    flex: 1,
+    justifyContent: "center",
   },
-  title : {
-    color : "white"
-  }
+  title: {
+    color: "white",
+  },
 });

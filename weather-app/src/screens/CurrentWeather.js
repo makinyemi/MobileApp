@@ -5,20 +5,45 @@ import RowText from "../components/RowText";
 import { weatherType } from "../utils/weatherType";
 
 export default function CurrentWeather() {
-  const { container, wrapper, highLow, highLowWrapper, bodyWrapper, temp, feels, message, description } = styles;
+  const {
+    container,
+    wrapper,
+    highLow,
+    highLowWrapper,
+    bodyWrapper,
+    temp,
+    feels,
+    message,
+    description,
+  } = styles;
   return (
     <SafeAreaView style={wrapper}>
-              <Text>Current Weather</Text>
+      <Text>Current Weather</Text>
 
       <View style={container}>
         <FontAwesome5 name="sun" size={100} color="black" />
-        <RowText messageOne={"6"} messageTwo={"Feels like 5"} messageOneStyles={temp} messageTwoStyles={feels}/>
+        <RowText
+          messageOne={"6"}
+          messageTwo={"Feels like 5"}
+          messageOneStyles={temp}
+          messageTwoStyles={feels}
+        />
         <View style={highLowWrapper}>
-          <RowText messageOne={"High: 8"} messageTwo={"Low: 6"} messageOneStyles={highLow} messageTwoStyles={highLow}/>
+          <RowText
+            messageOne={"High: 8"}
+            messageTwo={"Low: 6"}
+            messageOneStyles={highLow}
+            messageTwoStyles={highLow}
+          />
         </View>
       </View>
       <View style={bodyWrapper}>
-        <RowText messageOne={weatherType.Thundertorm.message} messageTwo={weatherType.Thundertorm.message} messageOneStyles={description} messageTwoStyles={message}/>
+        <RowText
+          messageOne={weatherType.Thundertorm.message}
+          messageTwo={weatherType.Thundertorm.message}
+          messageOneStyles={description}
+          messageTwoStyles={message}
+        />
       </View>
     </SafeAreaView>
   );
